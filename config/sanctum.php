@@ -19,6 +19,9 @@ return [
         env('APP_URL') ? ','.parse_url(env('APP_URL'), PHP_URL_HOST) : ''
     ))),
 
+    //since we are using Customer model instead of User model
+    'model' => App\Models\Customer::class,
+
     /*
     |--------------------------------------------------------------------------
     | Sanctum Guards
