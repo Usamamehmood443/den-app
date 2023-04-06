@@ -27,4 +27,9 @@ class Item extends Model
     {
         return $this->belongsTo(Restaurant::class);
     }
+
+    public function deals()
+    {
+        return $this->belongsToMany(Deal::class);
+    }
 }
