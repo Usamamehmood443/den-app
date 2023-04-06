@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\FoodCategoryController;
+use App\Http\Controllers\RestaurantListingTagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,3 +35,9 @@ Route::get('/restaurants', [RestaurantController::class, 'index']);
 
 //To add a food category
 Route::post('/food-categories', [FoodCategoryController::class, 'store']);
+
+//To add a new listing for restaurant
+Route::post('/restaurant-listing-tags', [RestaurantListingTagController::class, 'store']);
+
+//To get all restaurants by tag
+Route::get('/restaurants-by-tag', [RestaurantListingTagController::class, 'getRestaurantsByTag']);
