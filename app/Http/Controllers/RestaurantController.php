@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Restaurant;
+use Illuminate\Support\Facades\DB;
 
 class RestaurantController extends Controller
 {
@@ -45,5 +46,20 @@ class RestaurantController extends Controller
             'message' => 'Restaurants retrieved successfully.',
             'restaurants' => $restaurants
         ]);
+    }
+
+    public function getRestaurantByTag($tag)
+    {
+        $restaurants = Restaurant::whereHas('tags', function ($query) use ($tag) {
+            $query->where('name', $tag);
+        })
+            ->withCount('reviews')
+            ->with(['ratings' => function ($query) {
+                $query->select(DB::raw('ROUND(AVG(rating), 1) as average_rating'), 'restaurant_id')
+                    ->groupBy('restaurant_id');
+            }])
+            ->get();
+
+        return response()->json($restaurants);
     }
 }

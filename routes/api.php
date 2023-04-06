@@ -60,3 +60,6 @@ Route::post('/deals', [DealController::class, 'store']);
 
 //Add a deal-item entry
 Route::post('/deals/{deal}/attach-items', [DealController::class, 'attachItems']);
+
+//Get resturants of in tag
+Route::get('/restaurants/tag/{tag}', [RestaurantController::class, 'getRestaurantByTag']);
