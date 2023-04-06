@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\RestaurantListingTag;
+use App\Models\RestaurantReview;
+use App\Models\RestaurantRating;
 
 class Restaurant extends Model
 {
@@ -35,5 +37,15 @@ class Restaurant extends Model
     public function tags()
     {
         return $this->hasMany(RestaurantListingTag::class);
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany(RestaurantReview::class);
+    }
+
+    public function ratings()
+    {
+        return $this->hasMany(RestaurantRating::class);
     }
 }
