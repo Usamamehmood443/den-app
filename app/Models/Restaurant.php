@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\RestaurantListingTag;
 use App\Models\RestaurantReview;
 use App\Models\RestaurantRating;
+use App\Models\Deal;
+use App\Models\FoodCategory;
+use App\Models\Item;
 
 class Restaurant extends Model
 {
@@ -47,5 +50,20 @@ class Restaurant extends Model
     public function ratings()
     {
         return $this->hasMany(RestaurantRating::class);
+    }
+
+    public function deals()
+    {
+        return $this->hasMany(Deal::class);
+    }
+
+    public function foodCategories()
+    {
+        return $this->belongsToMany(FoodCategory::class, 'items', 'restaurant_id', 'food_category_id');
+    }
+
+    public function items()
+    {
+        return $this->hasMany(Item::class);
     }
 }

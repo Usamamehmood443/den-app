@@ -62,4 +62,14 @@ class RestaurantController extends Controller
 
         return response()->json($restaurants);
     }
+
+    public function getRestaurantDetails($id)
+    {
+
+        $restaurant = Restaurant::with(['deals', 'deals.items', 'items', 'items.foodCategory'])
+        ->withCount(['reviews', 'ratings'])
+        ->findOrFail($id);
+
+        return response()->json($restaurant);
+    }
 }

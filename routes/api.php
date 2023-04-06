@@ -63,3 +63,6 @@ Route::post('/deals/{deal}/attach-items', [DealController::class, 'attachItems']
 
 //Get resturants of in tag
 Route::get('/restaurants/tag/{tag}', [RestaurantController::class, 'getRestaurantByTag']);
+
+//Get Restaurant details
+Route::get('/restaurant/{id}/details', [RestaurantController::class, 'getRestaurantDetails']);
