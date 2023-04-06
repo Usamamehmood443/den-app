@@ -13,6 +13,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+
+        //This line adds dummy Food Categories
+        //$this->call(FoodCategoriesTableSeeder::class);
+
+        //This line adds 50 random data for restaurants
+        // $this->call(RestaurantsTableSeeder::class);
     }
 }
