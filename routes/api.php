@@ -10,6 +10,7 @@ use App\Http\Controllers\RestaurantReviewController;
 use App\Http\Controllers\RestaurantRatingController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\DealController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,3 +67,12 @@ Route::get('/restaurants/tag/{tag}', [RestaurantController::class, 'getRestauran
 
 //Get Restaurant details
 Route::get('/restaurant/{id}/details', [RestaurantController::class, 'getRestaurantDetails']);
+
+//Add to cart
+Route::post('cart/add', [CartController::class, 'addToCart'])->name('cart.add');
+
+//Remove item from cart
+Route::delete('cart/remove', [CartController::class, 'removeFromCart'])->name('cart.remove');
+
+//Get Cart
+Route::get('cart', [CartController::class, 'getCart'])->name('cart.get');
