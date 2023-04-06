@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\RestaurantListingTag;
 
 class Restaurant extends Model
 {
@@ -30,4 +31,9 @@ class Restaurant extends Model
         'contact_person_designation',
         'contact_person_email',
     ];
+
+    public function tags()
+    {
+        return $this->hasMany(RestaurantListingTag::class);
+    }
 }
