@@ -6,6 +6,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\FoodCategoryController;
 use App\Http\Controllers\RestaurantListingTagController;
+use App\Http\Controllers\RestaurantReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,3 +42,6 @@ Route::post('/restaurant-listing-tags', [RestaurantListingTagController::class, 
 
 //To get all restaurants by tag
 Route::get('/restaurants-by-tag', [RestaurantListingTagController::class, 'getRestaurantsByTag']);
+
+//Add a review for a restaurant given by customer
+Route::post('/reviews', [RestaurantReviewController::class, 'store']);
