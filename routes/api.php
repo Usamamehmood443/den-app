@@ -57,3 +57,6 @@ Route::post('/items', [ItemController::class, 'store']);
 
 //Add a deal for a restaurant
 Route::post('/deals', [DealController::class, 'store']);
+
+//Add a deal-item entry
+Route::post('/deals/{deal}/attach-items', [DealController::class, 'attachItems']);

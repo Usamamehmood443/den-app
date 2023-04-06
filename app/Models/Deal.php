@@ -24,4 +24,9 @@ class Deal extends Model
     {
         return $this->belongsTo(Restaurant::class);
     }
+
+    public function items()
+    {
+        return $this->belongsToMany(Item::class);
+    }
 }

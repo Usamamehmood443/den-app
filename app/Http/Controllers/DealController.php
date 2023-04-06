@@ -74,4 +74,17 @@ class DealController extends Controller
     {
         //
     }
+
+    public function attachItems(Request $request, $deal_id)
+    {
+        $validatedData = $request->validate([
+            'item_ids' => 'required|array',
+            'item_ids.*' => 'exists:items,id'
+        ]);
+
+        $deal = Deal::findOrFail($deal_id);
+        $deal->items()->attach($validatedData['item_ids']);
+
+        return response()->json(['message' => 'Items attached successfully.']);
+    }
 }
