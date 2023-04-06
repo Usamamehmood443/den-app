@@ -32,4 +32,9 @@ class Item extends Model
     {
         return $this->belongsToMany(Deal::class);
     }
+
+    public function foodCategory()
+    {
+        return $this->belongsTo(FoodCategory::class, 'category_id');
+    }
 }

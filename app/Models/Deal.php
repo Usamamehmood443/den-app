@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Item;
 
 class Deal extends Model
 {
@@ -25,8 +26,13 @@ class Deal extends Model
         return $this->belongsTo(Restaurant::class);
     }
 
+    // public function items()
+    // {
+    //     return $this->belongsToMany(Item::class);
+    // }
+
     public function items()
     {
-        return $this->belongsToMany(Item::class);
+        return $this->belongsToMany(Item::class, 'deal_item', 'deal_id', 'item_id');
     }
 }
