@@ -8,6 +8,8 @@ use App\Http\Controllers\FoodCategoryController;
 use App\Http\Controllers\RestaurantListingTagController;
 use App\Http\Controllers\RestaurantReviewController;
 use App\Http\Controllers\RestaurantRatingController;
+use App\Http\Controllers\ItemController;
+use App\Http\Controllers\DealController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,3 +51,9 @@ Route::post('/reviews', [RestaurantReviewController::class, 'store']);
 
 //Add a rating for a restaurant given by customer
 Route::post('/ratings', [RestaurantRatingController::class, 'store']);
+
+//Add a item for a restaurant
+Route::post('/items', [ItemController::class, 'store']);
+
+//Add a deal for a restaurant
+Route::post('/deals', [DealController::class, 'store']);
