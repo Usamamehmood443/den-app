@@ -7,6 +7,7 @@ use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\FoodCategoryController;
 use App\Http\Controllers\RestaurantListingTagController;
 use App\Http\Controllers\RestaurantReviewController;
+use App\Http\Controllers\RestaurantRatingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,3 +46,6 @@ Route::get('/restaurants-by-tag', [RestaurantListingTagController::class, 'getRe
 
 //Add a review for a restaurant given by customer
 Route::post('/reviews', [RestaurantReviewController::class, 'store']);
+
+//Add a rating for a restaurant given by customer
+Route::post('/ratings', [RestaurantRatingController::class, 'store']);
