@@ -30,8 +30,13 @@ class CustomerController extends Controller
         $token = $customer->createToken('auth_token')->plainTextToken;
 
         return response()->json([
-            'access_token' => $token,
-            'token_type' => 'Bearer',
+            'success' => true,
+            'message' => 'Signup Success',
+            'data' => [
+                'customer' => $customer,
+                'access_token' => $token,
+                'token_type' => 'Bearer',
+            ],
         ]);
     }
 
@@ -66,9 +71,13 @@ class CustomerController extends Controller
         $token = $customer->createToken('auth_token')->plainTextToken;
 
         return response()->json([
-            'customer' => $customer,
-            'access_token' => $token,
-            'token_type' => 'Bearer',
+            'success' => true,
+            'message' => 'Login Success',
+            'data' => [
+                'customer' => $customer,
+                'access_token' => $token,
+                'token_type' => 'Bearer',
+            ],
         ]);
     }
 
@@ -78,6 +87,7 @@ class CustomerController extends Controller
         $request->user()->currentAccessToken()->delete();
 
         return response()->json([
+            'success' => true,
             'message' => 'Logout successful',
         ]);
     }
