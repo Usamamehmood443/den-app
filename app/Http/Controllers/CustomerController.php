@@ -61,7 +61,7 @@ class CustomerController extends Controller
 
         // Compare plain-text passwords
         if (!$customer || $request->password !== $customer->password) {
-            return response()->json(['message' => 'Invalid email or password'], 401);
+            return response()->json(['success' => false, 'message' => 'Invalid email or password'], 401);
         }
 
         // Revoke existing tokens
