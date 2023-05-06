@@ -2,6 +2,20 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\AdminController;
+
+// Route::get('/admin/dashboard', [AdminController::class, 'showDashboard']);
+Route::prefix('admin')->group(function () {
+    Route::get('/login', [AdminController::class, 'showLoginForm'])->name('admin.login');
+    Route::post('/login/submit', [AdminController::class, 'login'])->name('admin.login.submit');
+    Route::get('/dashboard', [AdminController::class, 'showDashboard'])->name('admin.dashboard');
+});
+
+// Route::get('/admin/login', function () {
+//     return view('login');
+// })->name('admin.login');
+// // Route::post('/admin/login', [AdminController::class, 'login'])->name('login');
+// Route::post('/admin/login/submit', [AdminController::class, 'login'])->name('admin.login.submit');
 
 /*
 |--------------------------------------------------------------------------

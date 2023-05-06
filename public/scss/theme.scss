@@ -1,0 +1,803 @@
+@import "./variables.scss";
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #1A1A1A;
+}
+
+// d-none Begin
+.sm-none{
+    @include for_breakpoint(mobile) {
+        display: none;
+    }
+} 
+.md-none{
+    @include for_breakpoint(tablet) {
+        display: none;
+    }
+} 
+.laptop-none{
+    @include for_breakpoint(laptop) {
+        display: none;
+    }
+}
+.xl-d-none{
+    // @include for_breakpoint(laptop) {
+    //     display: none;
+    // }
+    @include for_breakpoint(desktop) {
+        display: none;
+    }
+    @include for_breakpoint(tv) {
+        display: none;
+    }
+}
+// d-none End 
+
+
+.text-white {
+    color: #FFFFFF !important;
+}
+
+.text-secondary {
+    color: #828282 !important;
+}
+.text-success{
+    color: #84BD93 !important;
+}
+.text-dark{
+    color: #828282 !important;
+}
+
+.bg-primary{
+    background-color: #1A1A1A !important;
+}
+.bg-black {
+    background: #1E1E1E !important;
+}
+.bg-dark{
+    background: #191919 !important;
+}
+.bg-light {
+    background: #3F3F3F !important;
+}
+.border-radius-10 {
+    border-radius: 10px;
+}
+.border-radius-20 {
+    border-radius: 20px;
+}
+.border-radius-8 {
+    border-radius: 8px;
+}
+.border-bottom-0{
+    border-bottom: 0px solid transparent !important;
+}
+
+
+.border-10{
+    border-radius: 10px 10px 0px 0px;
+}
+
+.fs-26 {
+    font-size: 26px !important;
+}
+.fs-16 {
+    font-size: 16px !important;
+}
+.fs-20 {
+    font-size: 20px !important;
+}
+.fs-36{
+    font-size: 36px !important;
+}
+.fw-600{
+    font-weight: 600;
+}
+.fw-500{
+    font-weight: 500;
+}
+.fw-400{
+    font-weight: 400 !important;
+}
+
+.h-60px {
+    height: 60px;
+}
+.h-150px{
+    height: 150px;
+}
+
+.w-5min{
+    width: 5% !important;
+}
+.w-115px{
+    width: 115px !important;
+}
+
+
+// Utilities STart  
+
+.mb-40 {
+    margin-bottom: 40px;
+}
+.mb-30 {
+    margin-bottom: 30px;
+}
+.mb-25 {
+    margin-bottom: 25px;
+}
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.ms-40 {
+    margin-left: 40px;
+}
+.ms-20 {
+    margin-left: 20px;
+}
+.mt-20{
+    margin-top: 20px;
+}
+.mt-30{
+    margin-top: 30px;
+}
+.mt-40{
+    margin-top: 40px;
+}
+.mt-50{
+    margin-top: 50px;
+}
+.px-40 {
+    padding-left: 40px;
+    padding-right: 40px;
+    @include for_breakpoint(mobile) {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    @include for_breakpoint(desktop) {
+        padding-left: 75px;
+    }
+}
+.mb-11{
+    margin-bottom: 11px;
+}
+.mb-23{
+    margin-bottom: 23px !important;
+}
+.mb-sm-20{
+    @include for_breakpoint(mobile) {
+        margin-bottom: 20px;
+    }
+}
+.mb-md-20{
+    @include for_breakpoint(tablet) {
+        margin-bottom: 20px;
+    }
+}
+.pb-22{
+    padding-bottom: 22px !important;
+}
+.py-24{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.ps-28{
+    padding-left: 28px;
+}
+.mt-100{
+    margin-top: 100px;
+    @include for_breakpoint(mobile) {
+        margin-top: 40px;
+    }
+}
+.px-39{
+    padding: 28px 39px 35px 39px !important;
+}
+// Utilities ENd  
+
+.form-select:focus{
+    box-shadow: none !important;
+}
+.form-select{
+    background-image: url("../images/down-arrow.svg") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 0.75rem center !important;
+}
+
+
+
+// Sidebar Start
+.sidebar {
+    background: #1A1A1A;
+    height: 100vh;
+    align-items: center;
+    display: flex;
+    position: fixed;
+    width: 16%;
+    @include for_breakpoint(desktop) {
+        width: 19%;
+    }
+
+    .bg-right-sidebar {
+        background: #353537;
+        height: 100vh;
+        width: 20px;
+        position: absolute;
+        left: 100%;
+        
+    }
+
+    .active {
+        border-left: 5px solid #EF8829;
+    }
+}
+
+// Sidebar End 
+
+
+// Header BEGIN
+.header {
+    .input-group{
+        width: 60%;
+        @include for_breakpoint(mobile) {
+            width: 100%;
+        }
+        @include for_breakpoint(tablet) {
+            width: 100%;
+        }
+        @include for_breakpoint(laptop) {
+            width: 100%;
+        }
+        
+        input {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 400;
+            &::placeholder {
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+                color: #828282;
+            }
+        }
+    }
+    
+}
+.form-control:focus{
+    box-shadow: none !important;
+}
+
+// Header ENd 
+
+
+
+// Dashboard BEGIN
+.customer-info{
+    .nav{
+        
+        
+        .nav-item{
+            background: #1E1E1E;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 31%;
+            padding: 17px;
+            @include for_breakpoint(mobile) {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    }
+    .tab-content{
+        .tab-pane{
+            .dropdown{
+                .dropdown-toggle::after{
+                    display: none;
+                }
+                .dropdown-item{
+                    &:hover{
+                        background-color: #1E1E1E !important;
+                        // border-radius: 10px 10px 0px 0px !important;
+                    }
+                }
+            }
+            .table-card{
+                background: #1E1E1E;
+                border-radius: 10px;
+                padding: 16px;
+               .table{
+                thead{
+                    tr{
+                        th{
+                            font-weight: 400;
+                            font-size: 16px;
+                            line-height: 24px;
+                            color: #828282;
+                        }
+                    }
+                }
+                tbody{
+                    tr{
+                        font-weight: 700;
+                        font-size: 16px;
+                        line-height: 24px;
+                        color: #FFFFFF;
+                        
+                    }
+                }
+               }
+            }
+        }
+    }
+    .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+        color: #828282 !important;
+    }
+} 
+
+.filter-white{
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%) !important;
+}
+.total-customer{
+    table{
+        tbody{
+            tr{
+                border-bottom: 15px solid #1A1A1A !important;
+                background: #1E1E1E;
+                border-radius: 10px;
+                td{
+                    padding: 15px;
+                }
+            }
+        }
+        .customer-img{
+            width: 40px;
+            height: 40px;
+            background-size: cover;
+        }
+        .form-check-input{
+            width: 23px;
+            height: 23px;
+        }
+    }
+}
+// Dashboard END 
+
+// Customer Detail 
+.contact-card{
+    background: #1E1E1E;
+border-radius: 10px;
+padding: 36px 24px;
+}
+
+.custom-badge-light-success {
+    color: #1FAF84;
+    background-color: #E9F7F3;
+}
+
+
+// Reports Page 
+
+.summary-card{
+    background: #1E1E1E;
+border-radius: 10px;
+padding: 24px 33px 33px;
+
+.circle-big {
+    position: relative;
+    width: 114px;
+    height: 114px;
+    // margin-right: auto;
+    margin: 0px 70px 12px 0px;
+    .text {
+        position: absolute;
+        width: 100%;
+        top: 49px;
+        left: 39%;
+        font-size: 12px;
+        text-align: center;
+        font-weight: 400;
+        line-height: 16px;
+        color: #fff;
+        .small {
+            font-size: 14px;
+            color: #3676fb;
+        }
+    }
+    .bg {
+        fill: none;
+        stroke-width: 10px;
+        stroke: #1E1E1E;
+    }
+    .progress {
+        fill: none;
+        stroke-width: 15px;
+        stroke: #3BB15A;
+        stroke-linecap: round;
+        stroke-dasharray: 326.56;
+        stroke-dashoffset: 60;
+        transform: rotate(120deg);
+        transform-origin: 19% 38%;
+        animation: big 1.5s ease-in-out;
+        @include for_breakpoint(mobile) {
+            transform-origin: 48% 18%;
+        }
+    }
+}
+}
+.circle-big .rated {
+    width: 400px;
+    height: 200px;
+    @include for_breakpoint(mobile) {
+        width: 135%;
+        height: 400px;
+    }
+}
+
+
+
+.total-cards{
+    background: #1E1E1E;
+border-radius: 10px;
+padding: 30px 21px 30px 27px;
+}
+
+.categories-card{
+    background: #1E1E1E;
+    border-radius: 10px;
+    padding: 38px 20px;
+
+    .tag-card{
+        background: #1E1E1E;
+        border-radius: 10px;
+        @include for_breakpoint(mobile) {
+            border-radius: 6px;
+        }
+
+        input{
+            background: #F2F2F2;
+            border-radius: 7px;
+            border: 0px;
+            &::placeholder{
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 26px;
+                color: #fff !important;
+                margin-top: 16px !important;
+            }
+        }
+    }
+    .tagify{
+        width: 100%;
+        // max-width: 700px;
+    }
+    
+    .tagify--outside{
+        border: 0;
+    }
+    
+    .tagify--outside .tagify__input{
+        order: -1;
+        flex: 100%;
+        border: 1px solid  #6E6E73;
+        margin-bottom: 1em;
+        transition: .1s;
+        height: 40px;
+        background: #1E1E1E;
+        border-radius: 10px;
+        height: 60px;
+        color: #fff !important;
+    }
+    
+    .tagify--outside .tagify__input:hover{ border-color:var(--tags-hover-border-color); }
+    .tagify--outside.tagify--focus .tagify__input{
+        transition:0s;
+        border-color: var(--tags-focus-border-color);
+        border-radius: 7px;
+    }
+    .tagify__input::placeholder{
+        color: #fff !important;
+    }
+    .tagify--outside::placeholder{
+        color: #fff !important;
+    }
+}
+
+input{
+    color: #fff !important;
+}
+input::placeholder{
+    color: #828282 !important;
+}
+textarea{
+    color: #fff !important;
+}
+textarea::placeholder{
+    color: #828282 !important;
+}
+select{
+    color: #fff !important;
+}
+select{
+    color: #828282 !important;
+}
+
+#formFile::before {
+    content: "Upload Image";
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    background-color: #191919;
+    color: #828282;
+    width: 116px;
+    height: 50px;
+    margin-left: -12px;
+    margin-top: -15px;
+    font-weight: 600;
+  }
+
+
+
+
+// Calender -------------------------------------------------------------------
+
+
+
+.calendar-section {
+    margin-bottom: 20px;
+  }
+  .calendar, .calendar_weekdays,
+  .calendar_content {
+    max-width: 585px;
+  }
+  
+  .calendar {
+    /*float: left;*/
+    margin: auto;
+    min-width: 320px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+  }
+  
+  .calendar_weekdays {
+      color: #aaa;
+      font-weight: lighter;
+  }
+  .calendar_weekdays div {
+    display:inline-block;
+    vertical-align:top;
+  }
+  .calendar_content, .calendar_weekdays, .calendar_header {
+    position: relative;
+  }
+  .calendar_content:after, .calendar_weekdays:after, .calendar_header:after {
+      content: ' ';
+      display: table;
+      clear: both;
+  }
+  .calendar_weekdays div, .calendar_content div {
+    /*border: 1px dotted #999;*/
+    width: 14.28571%;
+    height: 68px;
+    line-height: 69px;  
+    overflow: hidden;
+    text-align: center;
+    background-color: transparent;
+  }
+  
+  .calendar_content .today {
+      color: #3B8FC7;
+  }
+  .calendar_content div {
+    float: left;
+      margin-left: -1px;
+      margin-top: -1px;
+    border: 1px solid transparent;
+    color: #828282;
+  }
+  .calendar_content div:hover {
+    border: 1px solid #777;
+    /*line-height: 68px;*/
+    cursor: pointer;
+  }
+  
+  .calendar_content div.blank:hover {
+    cursor: default;
+    border: none;
+  }
+  
+  .calendar_content div.past-date {
+      cursor: initial;
+    color: #d5d5d5;
+  }
+  .calendar_content div.today{
+    font-weight: bold;
+    font-size: 18px;
+    color: #409EDD;
+  }
+  .calendar_content div.selected {
+    background-color: rgba(153, 153, 161, .2); /*rgba(170, 170, 176, .5) #aaaab0*/
+    border: 1px solid white;
+  }
+  .calendar_header {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .calendar_header h2 {
+    float:left;
+    width:70%;
+    margin-top: 10px;
+    padding: 0 10px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 1.5em;
+    color: #FFFFFF;
+  }
+  
+  button.switch-month {
+    background-color: transparent;
+    padding: 0;
+    outline: none;
+    border: none;
+    line-height: 52px;
+    height: 55px;
+    float: left;
+    width:15%;
+    transition: color .2s;
+  }
+  
+  button.switch-month:hover {
+    color: #5EADE2;
+  }
+  button.switch-month:active {
+    background-color: rgba(113, 113, 125, .4);
+  }
+  .calendar_header h2 {
+    color: #828282;
+    line-height: 1.7;
+    font-size: 20px;
+  }
+
+
+// -------------------------END CALENDER ----------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ .add-restaurant{
+    input[type="time"]::-webkit-calendar-picker-indicator {
+        color: rgba(0, 0, 0, 0);
+        opacity: 1;
+        display: block;
+        background: url("/assets/images/time.svg") no-repeat;
+        width: 20px;
+        height: 20px;
+        border-width: thin;
+    }
+    input[type="time"]{
+        font-size: 14px !important;
+    }
+    .dine-in{
+        .form-check-input {
+            --bs-form-check-bg: transparent;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+        .form-check-input:checked {
+            background-color: transparent;
+            border-color: #fff;
+            border: 2px solid #fff;
+        }
+        .form-check-input:focus {
+            border-color: #fff !important;
+            outline: 0;
+            box-shadow: none !important;
+        }
+    }
+ }
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  image Upload -----------------------------------------------------
+.upload-card{
+    background: #1E1E1E;
+border: 1px solid #FFFFFF;
+border-radius: 20px;
+}
+.avatar-upload {
+    position: relative;
+    max-width: 205px;
+    margin: 50px auto;
+  }
+  .avatar-upload .avatar-edit {
+    position: absolute;
+    right: 2px;
+    z-index: 1;
+    top: 0px;
+  }
+  .avatar-upload .avatar-edit input {
+    display: none;
+  }
+  .avatar-upload .avatar-edit input + label {
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    margin-bottom: 0;
+    border-radius: 100%;
+    background: #1A1A1A;
+    border: 1px solid transparent;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    font-weight: normal;
+    transition: all 0.2s ease-in-out;
+  }
+ 
+  .avatar-upload .avatar-edit input + label:after {
+    content: "+";
+    font-family: 'FontAwesome';
+    color: #fff;
+    position: absolute;
+    top: -9px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: auto;
+    font-size: 35px;
+    font-weight: 700;
+  }
+  .avatar-upload .avatar-preview {
+    width: 250px;
+    height: 250px;
+    position: relative;
+    border-radius: 100%;
+    border: 6px solid #353537;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  }
+  .avatar-upload .avatar-preview > div {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
