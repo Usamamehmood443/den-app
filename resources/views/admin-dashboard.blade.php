@@ -12,7 +12,7 @@
     <!-- Font  -->
 <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
 
-    <link rel="stylesheet" href="/scss/theme.css">
+    <link rel="stylesheet" href="{{ asset('/scss/theme.css') }}">
 
   </head>
   <body>
@@ -62,7 +62,7 @@
             <li class="mb-40">
                 <a href="#" class="text-decoration-none text-white fs-14 fw-normal">
                     <span class="me-3">
-                      <img src="/images/support.svg" class="img-fluid" alt="">                                                                                                                            
+                      <img src="{{ asset('/images/support.svg') }}" class="img-fluid" alt="">                                                                                                                            
                     </span>
                     Customer Support
                 </a>
@@ -114,7 +114,7 @@
                         <li class="mb-40">
                             <a href="customer-support.html" class="text-decoration-none text-white fs-14 fw-normal">
                                 <span class="me-3">
-                                  <img src="/images/support.svg" class="img-fluid" alt="">                                                                                                                                                   
+                                  <img src="{{ asset('/images/support.svg') }}" class="img-fluid" alt="">                                                                                                                                                   
                                 </span>
                                 Customer Support
                             </a>
@@ -138,14 +138,14 @@
                         <div class="input-group">
                             <input type="text" class="form-control form-control-lg bg-black border-radius-10 border-0 h-60px" placeholder="Search customers here" name="search" aria-label="Recipient's username" aria-describedby="basic-addon2">
                             <button type="button" class="input-group-text bg-black border-0 cursor-pointer" id="search">
-                                <img src="/images/search.svg" class="img-fluid" alt="">
+                                <img src="{{ asset('/images/search.svg') }}" class="img-fluid" alt="">
                             </span>
                           </div>
                 </div>
                 <div class="col-xl-6 col-lg-4 col-md-2 col-2">
                     <div class="text-end">
                         <a href="#">
-                            <img src="/images/upload.svg" class="img-upload" alt="">
+                            <img src="{{ asset('/images/upload.svg') }}" class="img-upload" alt="">
                         </a>
                     </div>
                 </div>
@@ -302,7 +302,7 @@
                                                         </td>
                                                         <td class="fs-16 text-white fw-500">
                                                           <a href="customer-detail.html" class="text-white text-decoration-none">
-                                                            <img src="/images/customer-img.png" class="img-fluid customer-img me-3" alt="">
+                                                            <img src="{{ asset('/images/customer-img.png') }}" class="img-fluid customer-img me-3" alt="">
                                                           Williams Devon
                                                           </a>
                                                         </td>
@@ -332,7 +332,7 @@
                                                         </td>
                                                         <td class="fs-16 text-white fw-500">
                                                           <a href="customer-detail.html" class="text-white text-decoration-none">
-                                                            <img src="/images/customer-img.png" class="img-fluid customer-img me-3" alt="">
+                                                            <img src="{{ asset('/images/customer-img.png') }}" class="img-fluid customer-img me-3" alt="">
                                                             James Smith
                                                           </a>
                                                         </td>
@@ -362,7 +362,7 @@
                                                         </td>
                                                         <td class="fs-16 text-white fw-500">
                                                           <a href="customer-detail.html" class="text-white text-decoration-none">
-                                                            <img src="/images/customer-img.png" class="img-fluid customer-img me-3" alt="">
+                                                            <img src="{{ asset('/images/customer-img.png') }}" class="img-fluid customer-img me-3" alt="">
                                                           Linda Sal
                                                           </a>
                                                           
