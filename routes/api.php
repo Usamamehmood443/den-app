@@ -32,6 +32,11 @@ Route::post('login', [CustomerController::class, 'login']);
 //To logout
 Route::middleware('auth:sanctum')->post('/customer/logout', [CustomerController::class, 'logout']);
 
+Route::middleware(['auth:api'])->group(function () {
+    Route::get('restaurants/tag/{tag}', [RestaurantController::class, 'getRestaurantByTag']);
+    // ... other routes that require authentication
+});
+
 //To add a restaurants
 Route::post('/restaurants', [RestaurantController::class, 'store']);
 
@@ -63,7 +68,7 @@ Route::post('/deals', [DealController::class, 'store']);
 Route::post('/deals/{deal}/attach-items', [DealController::class, 'attachItems']);
 
 //Get resturants of in tag
-Route::get('/restaurants/tag/{tag}', [RestaurantController::class, 'getRestaurantByTag']);
+// Route::get('/restaurants/tag/{tag}', [RestaurantController::class, 'getRestaurantByTag']);
 
 //Get Restaurant details
 Route::get('/restaurant/{id}/details', [RestaurantController::class, 'getRestaurantDetails']);

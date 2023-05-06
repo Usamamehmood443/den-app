@@ -33,8 +33,11 @@ class RestaurantController extends Controller
         $restaurant = Restaurant::create($request->all());
 
         return response()->json([
+            'success' => true,
             'message' => 'Restaurant created successfully',
-            'restaurant' => $restaurant,
+            'data' => [
+                'restaurant' => $restaurant,
+            ],
         ]);
     }
 
@@ -43,13 +46,23 @@ class RestaurantController extends Controller
         $restaurants = Restaurant::all();
 
         return response()->json([
+            'success' => true,
             'message' => 'Restaurants retrieved successfully.',
-            'restaurants' => $restaurants
+            'data' => [
+                'restaurants' => $restaurants,
+            ],
         ]);
     }
 
-    public function getRestaurantByTag($tag)
+    public function getRestaurantByTag(Request $request, $tag)
     {
+        // Get the authenticated customer
+        $customer = $request->user();
+
+        // Get the customer's latitude and longitude from the customer model
+        $customerLatitude = $customer->latitude;
+        $customerLongitude = $customer->longitude;
+
         $restaurants = Restaurant::whereHas('tags', function ($query) use ($tag) {
             $query->where('name', $tag);
         })
@@ -60,16 +73,38 @@ class RestaurantController extends Controller
             }])
             ->get();
 
-        return response()->json($restaurants);
+        // Calculate the distance for each restaurant
+        $restaurants->each(function ($restaurant) use ($customerLatitude, $customerLongitude) {
+            $restaurant->distance = haversineDistance(
+                $customerLatitude,
+                $customerLongitude,
+                $restaurant->latitude,
+                $restaurant->longitude
+            );
+        });
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Restaurants retrieved successfully by tag.',
+            'data' => [
+                'restaurants' => $restaurants,
+            ],
+        ]);
     }
 
     public function getRestaurantDetails($id)
     {
 
         $restaurant = Restaurant::with(['deals', 'deals.items', 'items', 'items.foodCategory'])
-        ->withCount(['reviews', 'ratings'])
-        ->findOrFail($id);
+            ->withCount(['reviews', 'ratings'])
+            ->findOrFail($id);
 
-        return response()->json($restaurant);
+        return response()->json([
+            'success' => true,
+            'message' => 'Restaurant details retrieved successfully.',
+            'data' => [
+                'restaurant' => $restaurant,
+            ],
+        ]);
     }
 }
