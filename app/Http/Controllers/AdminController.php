@@ -6,12 +6,17 @@ use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Customer;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
     public function showDashboard()
     {
-        return view('admin-dashboard');
+        $totalCustomers = Customer::count();
+        $newCustomers = Customer::where('created_at', '>', Carbon::now()->subDay())->count();
+        $customers = Customer::all();
+        return view('admin-dashboard', ['totalCustomers' => $totalCustomers, 'newCustomers' => $newCustomers, 'customers' => $customers]);
     }
 
     public function showLoginForm()
