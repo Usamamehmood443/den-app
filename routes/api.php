@@ -81,3 +81,7 @@ Route::delete('cart/remove', [CartController::class, 'removeFromCart'])->name('c
 
 //Get Cart
 Route::get('cart', [CartController::class, 'getCart'])->name('cart.get');
+
+Route::middleware(['auth:admin'])->group(function () {
+    // Your admin-related routes go here
+});
