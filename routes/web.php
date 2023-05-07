@@ -11,6 +11,22 @@ Route::prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminController::class, 'showDashboard'])->name('admin.dashboard');
 });
 
+Route::get('/restaurant', function () {
+    return view('restaurant');
+})->name('restaurant');
+
+Route::get('/reports', function () {
+    return view('reports');
+})->name('reports');
+
+Route::get('/customer-support', function () {
+    return view('customer-support');
+})->name('customer-support');
+
+Route::get('/add-restaurant', function () {
+    return view('add-restaurant');
+})->name('add-restaurant');
+
 // Route::get('/admin/login', function () {
 //     return view('login');
 // })->name('admin.login');
