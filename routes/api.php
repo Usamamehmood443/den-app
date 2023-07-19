@@ -11,6 +11,7 @@ use App\Http\Controllers\RestaurantRatingController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\DealController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,6 +82,11 @@ Route::delete('cart/remove', [CartController::class, 'removeFromCart'])->name('c
 
 //Get Cart
 Route::get('cart', [CartController::class, 'getCart'])->name('cart.get');
+
+// Route::get('myplugin/v1/get_product_ids_by_color', 'ProductController@getProductIdsByColor');
+Route::get('myplugin/v1/get_product_ids_by_color', [ProductController::class, 'getProductIdsByColor']);
+
+Route::get('myplugin/v1/get_product_ids_by_brand', [ProductController::class, 'getProductIdsByBrand']);
 
 Route::middleware(['auth:admin'])->group(function () {
     // Your admin-related routes go here
