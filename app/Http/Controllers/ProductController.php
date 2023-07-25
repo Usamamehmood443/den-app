@@ -123,8 +123,9 @@ class ProductController extends Controller
         if (count($sizes) > 0) {
             if (count($allColorProductIds)) {
                 $finalIdsArray = array_intersect($allSizeProductIds, $allColorProductIds);
+            } else {
+                $finalIdsArray = $allSizeProductIds;
             }
-            $finalIdsArray = $allSizeProductIds;
         } else if (count($colors) > 0) {
             $finalIdsArray = $allColorProductIds;
         }
